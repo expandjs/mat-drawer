@@ -1,0 +1,271 @@
+<!--
+@license
+Copyright (c) 2015 The expand.js authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This component is used to display a material drawer panel.
+
+@component mat-drawer-panel
+@description This component is used to display a material drawer panel.
+
+@dependency polymer Polymer/polymer#^0.5
+@dependency expandjs ExpandJS/expandjs
+@dependency mat-paper ExpandJS/mat-paper
+
+@devDependency mat-button ExpandJS/mat-button
+@devDependency mat-demo ExpandJS/mat-demo
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../mat-paper/mat-paper.html">
+<link rel="import" href="mat-drawer.html">
+
+<polymer-element name="mat-drawer-panel" constructor="MATDrawerPanelElement" attributes="drawer drawerBreakPoint drawerNarrow drawerShowed emptyDrawer emptyRightDrawer rightDrawer rightDrawerBreakPoint rightDrawerNarrow rightDrawerShowed">
+
+    <template>
+        <style>
+            :host {
+                display: block;
+                overflow: hidden;
+                text-align: left;
+
+                /* FIT */
+                bottom: 0;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            :host #matDrawerPanelWrapper {
+                overflow: hidden;
+            }
+
+            :host #matDrawerPanelMain {
+                overflow: auto;
+                position: relative;
+            }
+        </style>
+        <mat-paper id="matDrawerPanelWrapper" background="{{background}}" brightness="shell" horizontal layout fit>
+            <mat-drawer id="matDrawerPanelLeft" breakPoint="{{drawerBreakPoint}}" empty="{{emptyDrawer}}" narrow="{{drawerNarrow}}" panel="{{}}" showed="{{drawerShowed}}">
+                <content id="drawerContent" select="[drawer]:not([right])"></content>
+            </mat-drawer>
+            <div id="matDrawerPanelMain" flex>
+                <content id="mainContent" select="[main]"></content>
+            </div>
+            <mat-drawer id="matDrawerPanelRight" breakPoint="{{rightDrawerBreakPoint}}" empty="{{emptyRightDrawer}}" narrow="{{rightDrawerNarrow}}" panel="{{}}" right="{{true}}" showed="{{rightDrawerShowed}}">
+                <content id="rightDrawerContent" select="[right][drawer]"></content>
+            </mat-drawer>
+        </mat-paper>
+    </template>
+
+    <script>
+        XPComponent({
+
+            /**
+             * Hides the left drawer.
+             *
+             * @method hide
+             * @returns {Element}
+             */
+            hide: function () {
+                var self = this;
+                self.drawer.hide();
+                return self;
+            },
+
+            /**
+             * Hides the right drawer.
+             *
+             * @method hideRight
+             * @returns {Element}
+             */
+            hideRight: function () {
+                var self = this;
+                self.rightDrawer.hide();
+                return self;
+            },
+
+            /**
+             * Shows the left drawer.
+             *
+             * @method show
+             * @returns {Element}
+             */
+            show: function () {
+                var self = this;
+                self.drawer.show();
+                return self;
+            },
+
+            /**
+             * Shows the right drawer.
+             *
+             * @method showRight
+             * @returns {Element}
+             */
+            showRight: function () {
+                var self = this;
+                self.rightDrawer.show();
+                return self;
+            },
+
+            /**
+             * Toggles the left drawer.
+             *
+             * @method toggle
+             * @returns {Element}
+             */
+            toggle: function () {
+                var self = this;
+                self.drawer.toggle();
+                return self;
+            },
+
+            /**
+             * Toggles the right drawer.
+             *
+             * @toggleRight
+             * @returns {Element}
+             */
+            toggleRight: function () {
+                var self = this;
+                self.rightDrawer.toggle();
+                return self;
+            },
+
+            /*********************************************************************/
+
+            // PUBLISH
+            publish: {
+
+                /**
+                 * The panel's left drawer.
+                 *
+                 * @attribute drawer
+                 * @type Element
+                 * @readonly
+                 */
+                drawer: {reflect: false, value: null},
+
+                /**
+                 * The breakpoint for the left drawer's narrow state.
+                 *
+                 * @attribute drawerBreakPoint
+                 * @type number
+                 * @default 1480
+                 */
+                drawerBreakPoint: {reflect: true, value: 1280},
+
+                /**
+                 * If set to true, the viewport is smaller then the left drawer's breakpoint.
+                 * In such case, the drawer will be automatically closed.
+                 *
+                 * @attribute drawerNarrow
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                drawerNarrow: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the drawer is visible.
+                 *
+                 * @attribute drawerShowed
+                 * @type boolean
+                 * @default false
+                 */
+                drawerShowed: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the left drawer is hidden.
+                 *
+                 * @attribute emptyDrawer
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                emptyDrawer: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the right drawer is hidden.
+                 *
+                 * @attribute emptyRightDrawer
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                emptyRightDrawer: {reflect: true, value: false},
+
+                /**
+                 * The panel's right drawer.
+                 *
+                 * @property rightDrawer
+                 * @type Element
+                 * @readonly
+                 */
+                rightDrawer: {reflect: false, value: null},
+
+                /**
+                 * The breakpoint for the right drawer's narrow state.
+                 *
+                 * @attribute rightDrawerBreakPoint
+                 * @type number
+                 * @default 640
+                 */
+                rightDrawerBreakPoint: {reflect: true, value: 640},
+
+                /**
+                 * The right drawer's max width.
+                 *
+                 * @attribute rightDrawerMaxWidth
+                 * @type number
+                 * @default 0
+                 */
+                rightDrawerMaxWidth: {reflect: true, value: 0},
+
+                /**
+                 * If set to true, the viewport is smaller then the right drawer's breakpoint.
+                 * In such case, the drawer will be automatically closed.
+                 *
+                 * @attribute rightDrawerNarrow
+                 * @type boolean
+                 * @default false
+                 * @readonly
+                 */
+                rightDrawerNarrow: {reflect: true, value: false},
+
+                /**
+                 * If set to true, the right drawer is visible.
+                 *
+                 * @attribute rightDrawerShowed
+                 * @type boolean
+                 * @default false
+                 */
+                rightDrawerShowed: {reflect: true, value: false}
+            },
+
+            /*********************************************************************/
+
+            // LISTENER
+            attached: function () {
+                var self = this;
+                XP.delay(function () { self.drawer.refresh(); });
+                XP.delay(function () { self.rightDrawer.refresh(); });
+            },
+
+            // LISTENER
+            ready: function () {
+                var self = this;
+                self.drawer      = self.$.matDrawerPanelLeft;
+                self.rightDrawer = self.$.matDrawerPanelRight;
+            }
+        });
+    </script>
+
+</polymer-element>
