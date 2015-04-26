@@ -97,7 +97,7 @@ This element is used to display a material navigation drawer.
             }
         </style>
         <xp-device id="matDrawerDevice"></xp-device>
-        <div id="matDrawerBackdrop" hidden?="{{!narrow}}" on-tap="{{handleHide}}" fit></div>
+        <div id="matDrawerBackdrop" hidden?="{{!narrow}}" on-click="{{handleHide}}" fit></div>
         <div id="matDrawerWrapper" end-justified?="{{right}}" fit?="{{narrow}}" horizontal layout>
             <div id="matDrawerSpacer" hidden?="{{right || !narrow}}"></div>
             <mat-paper id="matDrawerColumn" z="{{narrow ? 1 : 0}}" flex?="{{mobile && device !== 'tablet'}}">
