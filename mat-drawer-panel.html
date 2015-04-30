@@ -48,21 +48,33 @@ This element is used to display a material drawer panel.
                 overflow: hidden;
             }
 
+            :host #matDrawerPanelLeft {
+                -ms-flex-order: 1;
+                order: 1;
+            }
+
             :host #matDrawerPanelMain {
+                -ms-flex-order: 2;
+                order: 2;
                 overflow: auto;
                 position: relative;
             }
+
+            :host #matDrawerPanelRight {
+                -ms-flex-order: 3;
+                order: 3;
+            }
         </style>
         <mat-paper id="matDrawerPanelWrapper" background="{{background}}" brightness="shell" horizontal layout fit>
-            <mat-drawer id="matDrawerPanelLeft" breakPoint="{{drawerBreakPoint}}" empty="{{emptyDrawer}}" narrow="{{drawerNarrow}}" panel="{{}}" showed="{{drawerShowed}}">
-                <content id="drawerContent" select="[drawer]:not([right])"></content>
-            </mat-drawer>
-            <div id="matDrawerPanelMain" flex>
-                <content id="mainContent" select="[main]"></content>
-            </div>
             <mat-drawer id="matDrawerPanelRight" breakPoint="{{rightDrawerBreakPoint}}" empty="{{emptyRightDrawer}}" narrow="{{rightDrawerNarrow}}" panel="{{}}" right="{{true}}" showed="{{rightDrawerShowed}}">
                 <content id="rightDrawerContent" select="[right][drawer]"></content>
             </mat-drawer>
+            <mat-drawer id="matDrawerPanelLeft" breakPoint="{{drawerBreakPoint}}" empty="{{emptyDrawer}}" narrow="{{drawerNarrow}}" panel="{{}}" showed="{{drawerShowed}}">
+                <content id="drawerContent" select="[drawer]"></content>
+            </mat-drawer>
+            <div id="matDrawerPanelMain" flex>
+                <content id="mainContent"></content>
+            </div>
         </mat-paper>
     </template>
 
@@ -160,9 +172,9 @@ This element is used to display a material drawer panel.
                  *
                  * @attribute drawerBreakPoint
                  * @type number
-                 * @default 1480
+                 * @default 1280
                  */
-                drawerBreakPoint: {reflect: true, value: 1480},
+                drawerBreakPoint: {reflect: true, value: 1280},
 
                 /**
                  * If set to true, the viewport is smaller then the left drawer's breakpoint.
