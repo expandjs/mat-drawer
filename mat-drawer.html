@@ -357,7 +357,7 @@ This element is used to display a material navigation drawer.
             mutated: function () {
                 var self = this;
                 self.empty = !XP.isContent(self.$.content, true);
-                XP.onMutation(self, self.mutated.bind(self));
+                XP.onMutation(self.drawerPanel, self.mutated.bind(self));
             },
 
             // LISTENER
