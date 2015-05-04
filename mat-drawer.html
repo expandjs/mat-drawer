@@ -207,7 +207,7 @@ This element is used to display a material navigation drawer.
              */
             refresh: function () {
                 var self = this;
-                self.narrow = self.$.matDrawerDevice.mobile || self.panel.clientWidth < self.breakPoint;
+                self.narrow = (self.$.matDrawerDevice.mobile && !self.right) || self.panel.clientWidth < self.breakPoint;
                 self.showed = self.right ? self.showed : !self.narrow;
                 return self;
             },
@@ -357,7 +357,7 @@ This element is used to display a material navigation drawer.
             mutated: function () {
                 var self = this;
                 self.empty = !XP.isContent(self.$.content, true);
-                XP.onMutation(self.drawerPanel, self.mutated.bind(self));
+                XP.onMutation(self.panel, self.mutated.bind(self));
             },
 
             // LISTENER
