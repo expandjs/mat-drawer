@@ -159,15 +159,6 @@ This element is used to display a material drawer panel.
             publish: {
 
                 /**
-                 * The panel's left drawer.
-                 *
-                 * @attribute drawer
-                 * @type Element
-                 * @readonly
-                 */
-                drawer: {reflect: false, value: null},
-
-                /**
                  * The breakpoint for the left drawer's narrow state.
                  *
                  * @attribute drawerBreakPoint
@@ -217,15 +208,6 @@ This element is used to display a material drawer panel.
                 emptyRightDrawer: {reflect: true, value: false},
 
                 /**
-                 * The panel's right drawer.
-                 *
-                 * @property rightDrawer
-                 * @type Element
-                 * @readonly
-                 */
-                rightDrawer: {reflect: false, value: null},
-
-                /**
                  * The breakpoint for the right drawer's narrow state.
                  *
                  * @attribute rightDrawerBreakPoint
@@ -263,6 +245,26 @@ This element is used to display a material drawer panel.
                  */
                 rightDrawerShowed: {reflect: true, value: false}
             },
+
+            /**
+             * The panel's left drawer.
+             *
+             * @property drawer
+             * @type Element
+             * @readonly
+             * @private
+             */
+            drawer: {reflect: false, value: null},
+
+            /**
+             * The panel's right drawer.
+             *
+             * @property rightDrawer
+             * @type Element
+             * @readonly
+             * @private
+             */
+            rightDrawer: {reflect: false, value: null},
 
             /*********************************************************************/
 
