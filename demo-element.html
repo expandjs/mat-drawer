@@ -1,0 +1,36 @@
+<link rel="import" href="../mat-demo/mat-demo.html">
+<link rel="import" href="../mat-button/mat-button.html">
+<link rel="import" href="mat-drawer-panel.html">
+
+<polymer-element name="mat-drawer-panel-demo" noscript>
+
+    <template>
+        <style>
+            :host [drawer],
+            :host [main] {
+                padding: 16px;
+                text-align: center;
+            }
+        </style>
+        <mat-demo label="mat-drawer-panel">
+
+            <mat-drawer-panel id="drawerPanel">
+                <div drawer>
+                    <div>Drawer content.</div>
+                    <mat-button label="Close" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}"></mat-button>
+                </div>
+                <div main>
+                    <h1>Default</h1>
+                    <mat-button label="Toggle drawer" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}"></mat-button>
+                    <mat-button label="Toggle right drawer" target="drawerPanel" invokes="toggleRight"></mat-button>
+                </div>
+                <div right drawer>
+                    <div>Right drawer content.</div>
+                    <mat-button label="Close" target="drawerPanel" invokes="toggleRight"></mat-button>
+                </div>
+            </mat-drawer-panel>
+
+        </mat-demo>
+    </template>
+
+</polymer-element>
