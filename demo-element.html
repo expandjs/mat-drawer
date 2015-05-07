@@ -36,9 +36,15 @@
     <script>
         XPElement({
 
-            // HANDLERS
-            handleLeft: function (event) { event.detail.target.toggle(); },
-            handleRight: function (event) { event.detail.target.toggleRight(); }
+            // HANDLER
+            handleLeft: function (event) {
+                event.detail.target.toggle();
+            },
+
+            // HANDLER
+            handleRight: function (event) {
+                event.detail.target.toggleRight();
+            }
         });
     </script>
 
