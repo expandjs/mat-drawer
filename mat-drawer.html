@@ -175,7 +175,7 @@ This element is used to display a material navigation drawer.
                 if (self.animatable) { self.animated = true; } else { return self; }
 
                 // Frame 1
-                XP.requestAnimationFrame(function () {
+                XP.delay(function () {
 
                     // Preparing
                     if (!animated) {
@@ -184,7 +184,7 @@ This element is used to display a material navigation drawer.
                     }
 
                     // Frame 2
-                    XP.requestAnimationFrame(function () {
+                    XP.delay(function () {
 
                         // Animating
                         XP.setStyles(backdrop, {transition: null, opacity: self.showed ? 1 : 0});
@@ -350,7 +350,7 @@ This element is used to display a material navigation drawer.
                 var self = this;
                 self.refresh();
                 self.mutated();
-                XP.requestAnimationFrame(function () { self.animatable = true; });
+                XP.delay(function () { self.animatable = true; });
             },
 
             // LISTENER
@@ -378,7 +378,7 @@ This element is used to display a material navigation drawer.
             handleSelect: function (event) {
                 var self = this;
                 if (self.autoHideDisabled || self.right || !event.detail.isSelected || event.detail.multi) { return; }
-                XP.requestAnimationFrame(function () { return !event.defaultPrevented && self.hide(); });
+                XP.delay(function () { return !event.defaultPrevented && self.hide(); });
             }
         });
     </script>
