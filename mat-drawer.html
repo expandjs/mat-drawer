@@ -175,7 +175,7 @@ This element is used to display a material navigation drawer.
                 if (self.animatable) { self.animated = true; } else { return self; }
 
                 // Frame 1
-                XP.delay(function () {
+                XP.requestAnimationFrame(function () {
 
                     // Preparing
                     if (!animated) {
@@ -184,7 +184,7 @@ This element is used to display a material navigation drawer.
                     }
 
                     // Frame 2
-                    XP.delay(function () {
+                    XP.requestAnimationFrame(function () {
 
                         // Animating
                         XP.setStyles(backdrop, {transition: null, opacity: self.showed ? 1 : 0});
