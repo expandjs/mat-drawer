@@ -17,11 +17,11 @@
             <mat-drawer-panel id="drawerPanel">
                 <div drawer>
                     <div>Drawer content.</div>
-                    <mat-button label="Close" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}"></mat-button>
+                    <mat-button label="Close" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
                 </div>
                 <div main>
                     <div class="demo-title">Default</div>
-                    <mat-button label="Toggle drawer" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}"></mat-button>
+                    <mat-button label="Toggle drawer" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
                     <mat-button label="Toggle right drawer" target="drawerPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
                 <div right drawer>
@@ -36,10 +36,9 @@
     <script>
         XPElement({
 
-            // HANDLER
-            handleRight: function () {
-                this.$.drawerPanel.toggleRight();
-            }
+            // HANDLERS
+            handleLeft: function (event) { event.detail.target.toggle(); },
+            handleRight: function (event) { event.detail.target.toggleRight(); }
         });
     </script>
 
