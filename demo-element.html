@@ -17,11 +17,11 @@
             <mat-drawer-panel id="demoPanel">
                 <div drawer>
                     <div>Drawer content.</div>
-                    <mat-button label="Close" target="demoPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
+                    <mat-button label="Close" target="demoPanel" hidden?="{{!$.demoPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
                 </div>
                 <div main>
                     <div class="demo-title">Default</div>
-                    <mat-button label="Toggle drawer" target="demoPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
+                    <mat-button label="Toggle drawer" target="demoPanel" hidden?="{{!$.demoPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
                     <mat-button label="Toggle right drawer" target="demoPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
                 <div right drawer>
