@@ -14,19 +14,19 @@
         </style>
         <mat-demo label="mat-drawer-panel">
 
-            <mat-drawer-panel id="drawerPanel">
+            <mat-drawer-panel id="demoPanel">
                 <div drawer>
                     <div>Drawer content.</div>
-                    <mat-button label="Close" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
+                    <mat-button label="Close" target="demoPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
                 </div>
                 <div main>
                     <div class="demo-title">Default</div>
-                    <mat-button label="Toggle drawer" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
-                    <mat-button label="Toggle right drawer" target="drawerPanel" on-xp-activate="{{handleRight}}"></mat-button>
+                    <mat-button label="Toggle drawer" target="demoPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
+                    <mat-button label="Toggle right drawer" target="demoPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
                 <div right drawer>
                     <div>Right drawer content.</div>
-                    <mat-button label="Close" target="drawerPanel" on-xp-activate="{{handleRight}}"></mat-button>
+                    <mat-button label="Close" target="demoPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
             </mat-drawer-panel>
 
