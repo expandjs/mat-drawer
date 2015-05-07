@@ -350,7 +350,7 @@ This element is used to display a material navigation drawer.
                 var self = this;
                 self.refresh();
                 self.mutated();
-                XP.delay(function () { self.animatable = true; });
+                XP.requestAnimationFrame(function () { self.animatable = true; });
             },
 
             // LISTENER
@@ -378,7 +378,7 @@ This element is used to display a material navigation drawer.
             handleSelect: function (event) {
                 var self = this;
                 if (self.autoHideDisabled || self.right || !event.detail.isSelected || event.detail.multi) { return; }
-                XP.delay(function () { if (!event.defaultPrevented) { self.hide(); } });
+                XP.requestAnimationFrame(function () { return !event.defaultPrevented && self.hide(); });
             }
         });
     </script>

@@ -271,8 +271,7 @@ This element is used to display a material drawer panel.
             // LISTENER
             attached: function () {
                 var self = this;
-                XP.delay(function () { self.drawer.refresh(); });
-                XP.delay(function () { self.rightDrawer.refresh(); });
+                XP.requestAnimationFrame(function () { self.drawer.refresh(); self.rightDrawer.refresh(); });
             },
 
             // LISTENER

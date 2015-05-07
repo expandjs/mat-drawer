@@ -2,7 +2,7 @@
 <link rel="import" href="../mat-button/mat-button.html">
 <link rel="import" href="mat-drawer-panel.html">
 
-<polymer-element name="mat-drawer-panel-demo" noscript>
+<polymer-element name="mat-drawer-panel-demo">
 
     <template>
         <style>
@@ -22,15 +22,25 @@
                 <div main>
                     <div class="demo-title">Default</div>
                     <mat-button label="Toggle drawer" target="drawerPanel" hidden?="{{!$.drawerPanel.drawerNarrow}}"></mat-button>
-                    <mat-button label="Toggle right drawer" target="drawerPanel" invokes="toggleRight"></mat-button>
+                    <mat-button label="Toggle right drawer" target="drawerPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
                 <div right drawer>
                     <div>Right drawer content.</div>
-                    <mat-button label="Close" target="drawerPanel" invokes="toggleRight"></mat-button>
+                    <mat-button label="Close" target="drawerPanel" on-xp-activate="{{handleRight}}"></mat-button>
                 </div>
             </mat-drawer-panel>
 
         </mat-demo>
     </template>
+
+    <script>
+        XPElement({
+
+            // HANDLER
+            handleRight: function () {
+                this.$.drawerPanel.toggleRight();
+            }
+        });
+    </script>
 
 </polymer-element>
