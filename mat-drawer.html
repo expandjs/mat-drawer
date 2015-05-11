@@ -29,7 +29,7 @@ This element is used to display a material navigation drawer.
 <link rel="import" href="../mat-paper/mat-paper.html">
 <link rel="import" href="../xp-device/xp-device.html">
 
-<polymer-element name="mat-drawer" constructor="MATDrawerElement" attributes="animated autoHideDisabled breakPoint empty narrow panel right showed width">
+<polymer-element name="mat-drawer" constructor="MATDrawerElement" attributes="animated autoHideDisabled breakPoint empty narrow panel right showed">
 
     <template>
         <style>
@@ -270,15 +270,6 @@ This element is used to display a material navigation drawer.
                 empty: {reflect: true, value: false},
 
                 /**
-                 * The drawer's max width. If `0`, the drawer will be sized by its content.
-                 *
-                 * @attribute maxWidth
-                 * @type number
-                 * @default 0
-                 */
-                maxWidth: {reflect: true, value: 0},
-
-                /**
                  * If set to true, the viewport is smaller then the drawer's breakpoint.
                  * In such case, the drawer will be automatically closed.
                  *
@@ -340,11 +331,6 @@ This element is used to display a material navigation drawer.
             // OBSERVER
             showedChanged: function (pre, post) {
                 this.fire('xp-toggle', {firer: this.animate(), isShowed: post});
-            },
-
-            // OBSERVER
-            widthChanged: function () {
-                XP.setStyle(this.$.matDrawerColumn, 'width', this.maxWidth || this.width ? (this.maxWidth || this.width) + 'px' : null);
             },
 
             /*********************************************************************/
