@@ -1,7 +1,7 @@
 {
   "name": "mat-drawer-panel",
   "license": "BSD-3-Clause",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "A custom element used to display a Material Design container with collapsible side drawers",
   "homepage": "http://www.expandjs.com/elements/mat-drawer-panel",
   "authors": [
