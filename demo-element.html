@@ -1,34 +1,41 @@
 <link rel="import" href="../mat-demo/mat-demo.html">
 <link rel="import" href="../mat-button/mat-button.html">
-<link rel="import" href="mat-drawer-panel.html">
+<link rel="import" href="../mat-content/mat-content.html">
+<link rel="import" href="../mat-shell/mat-shell.html">
+<link rel="import" href="mat-drawer.html">
 
-<polymer-element name="mat-drawer-panel-demo">
+<polymer-element name="mat-drawer-demo">
 
     <template>
         <style>
             :host [drawer],
             :host [main] {
-                padding: 16px;
                 text-align: center;
             }
         </style>
-        <mat-demo label="mat-drawer-panel">
+        <mat-demo label="mat-drawer">
 
-            <mat-drawer-panel id="demoPanel">
-                <div drawer>
-                    <div>Drawer content.</div>
-                    <mat-button label="Close" target="demoPanel" hidden?="{{!$.demoPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
-                </div>
+            <mat-shell>
+                <mat-drawer id="demoLeft">
+                    <mat-content>
+                        <div>Drawer content.</div>
+                        <mat-button label="Close" target="demoLeft" hidden?="{{!$.demoLeft.narrow}}" on-xp-activate="{{handleActivate}}"></mat-button>
+                    </mat-content>
+                </mat-drawer>
                 <div main>
-                    <div class="demo-title">Default</div>
-                    <mat-button label="Toggle drawer" target="demoPanel" hidden?="{{!$.demoPanel.drawerNarrow}}" on-xp-activate="{{handleLeft}}"></mat-button>
-                    <mat-button label="Toggle right drawer" target="demoPanel" on-xp-activate="{{handleRight}}"></mat-button>
+                    <mat-content>
+                        <div class="demo-title">Default</div>
+                        <mat-button label="Toggle drawer" target="demoLeft" hidden?="{{!$.demoLeft.narrow}}" on-xp-activate="{{handleActivate}}"></mat-button>
+                        <mat-button label="Toggle right drawer" target="demoRight" on-xp-activate="{{handleActivate}}"></mat-button>
+                    </mat-content>
                 </div>
-                <div right drawer>
-                    <div>Right drawer content.</div>
-                    <mat-button label="Close" target="demoPanel" on-xp-activate="{{handleRight}}"></mat-button>
-                </div>
-            </mat-drawer-panel>
+                <mat-drawer id="demoRight" right>
+                    <mat-content>
+                        <div>Right drawer content.</div>
+                        <mat-button label="Close" target="demoRight" on-xp-activate="{{handleActivate}}"></mat-button>
+                    </mat-content>
+                </mat-drawer>
+            </mat-shell>
 
         </mat-demo>
     </template>
@@ -37,13 +44,8 @@
         XPElement({
 
             // HANDLER
-            handleLeft: function (event) {
+            handleActivate: function (event) {
                 event.detail.target.toggle();
-            },
-
-            // HANDLER
-            handleRight: function (event) {
-                event.detail.target.toggleRight();
             }
         });
     </script>

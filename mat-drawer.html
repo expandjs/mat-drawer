@@ -12,8 +12,8 @@ This element is used to display a material navigation drawer.
 @element mat-drawer
 @description A custom element used to display a Material Design navigational drawer
 @group containers
-@homepage http://www.expandjs.com/elements/mat-drawer-panel
-@demo http://www.expandjs.com/demo/mat-drawer-panel
+@homepage http://www.expandjs.com/elements/mat-drawer
+@demo http://www.expandjs.com/demo/mat-drawer
 
 @dependency polymer Polymer/polymer#^0.5
 @dependency expandjs ExpandJS/expandjs
@@ -21,7 +21,9 @@ This element is used to display a material navigation drawer.
 @dependency xp-device ExpandJS/xp-device
 
 @devDependency mat-button ExpandJS/mat-button
+@devDependency mat-content ExpandJS/mat-content
 @devDependency mat-demo ExpandJS/mat-demo
+@devDependency mat-shell ExpandJS/mat-shell
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -29,7 +31,7 @@ This element is used to display a material navigation drawer.
 <link rel="import" href="../mat-paper/mat-paper.html">
 <link rel="import" href="../xp-device/xp-device.html">
 
-<polymer-element name="mat-drawer" constructor="MATDrawerElement" attributes="animated autoHideDisabled breakPoint empty narrow panel right showed">
+<polymer-element name="mat-drawer" constructor="MATDrawerElement" attributes="animated autoHideDisabled breakPoint empty narrow right showed">
 
     <template>
         <style>
@@ -101,10 +103,10 @@ This element is used to display a material navigation drawer.
             }
         </style>
         <xp-device id="matDrawerDevice"></xp-device>
-        <div id="matDrawerBackdrop" hidden?="{{!narrow}}" on-click="{{handleHide}}" fit></div>
+        <div id="matDrawerBackdrop" hidden?="{{right || !narrow}}" on-click="{{handleHide}}" fit></div>
         <div id="matDrawerWrapper" end-justified?="{{right}}" fit?="{{narrow}}" horizontal layout>
             <div id="matDrawerSpacer" hidden?="{{right || !narrow}}"></div>
-            <mat-paper id="matDrawerColumn" z="{{narrow ? 1 : 0}}" flex?="{{mobile && device !== 'tablet'}}">
+            <mat-paper id="matDrawerColumn" z="{{narrow ? 1 : 0}}" flex?="{{right || (mobile && device !== 'tablet')}}">
                 <content id="content"></content>
             </mat-paper>
         </div>
@@ -211,7 +213,7 @@ This element is used to display a material navigation drawer.
              */
             refresh: function () {
                 var self = this;
-                self.narrow = (self.$.matDrawerDevice.mobile && !self.right) || self.panel.clientWidth < self.breakPoint;
+                self.narrow = (self.$.matDrawerDevice.mobile && !self.right) || innerWidth < self.breakPoint;
                 self.showed = self.right ? self.showed : !self.narrow;
                 return self;
             },
@@ -225,6 +227,7 @@ This element is used to display a material navigation drawer.
 
             // OBSERVE
             observe: {
+                'breakPoint right': 'refresh',
                 '$.matDrawerDevice.mobile': 'refresh'
             },
 
@@ -255,9 +258,9 @@ This element is used to display a material navigation drawer.
                  *
                  * @attribute breakPoint
                  * @type number
-                 * @default 0
+                 * @default 1280
                  */
-                breakPoint: {reflect: true, value: 0},
+                breakPoint: {reflect: true, value: 1280},
 
                 /**
                  * If set to true, the drawer is hidden.
@@ -275,21 +278,13 @@ This element is used to display a material navigation drawer.
                  *
                  * @attribute narrow
                  * @type boolean
-                 * @default true
+                 * @default false
                  * @readonly
                  */
-                narrow: {reflect: true, value: true},
+                narrow: {reflect: true, value: false},
 
                 /**
-                 * The drawer's panel.
-                 *
-                 * @attribute panel
-                 * @type Element
-                 */
-                panel: {reflect: false, value: null},
-
-                /**
-                 * If set to true, the drawer is on the panel's right side.
+                 * If set to true, the drawer is on the right side.
                  *
                  * @attribute right
                  * @type boolean
@@ -329,6 +324,11 @@ This element is used to display a material navigation drawer.
             /*********************************************************************/
 
             // OBSERVER
+            rightChanged: function () {
+                if (!this.hasAttribute('breakpoint')) { this.breakPoint = 640; }
+            },
+
+            // OBSERVER
             showedChanged: function (pre, post) {
                 this.fire('xp-toggle', {firer: this.animate(), isShowed: post});
             },
@@ -344,10 +344,15 @@ This element is used to display a material navigation drawer.
             },
 
             // LISTENER
+            created: function () {
+                this.setAttribute('drawer', '');
+            },
+
+            // LISTENER
             mutated: function () {
                 var self = this;
                 self.empty = !XP.isContent(self.$.content, true);
-                XP.onMutation(self.panel, self.mutated.bind(self));
+                XP.onMutation(self, self.mutated.bind(self));
             },
 
             // LISTENER
