@@ -1,3 +1,3 @@
-# mat-drawer-panel
+# mat-drawer
 
-See the [`documentation page`](http://www.expandjs.com/elements/mat-drawer-panel) for more information.
+See the [`documentation page`](http://www.expandjs.com/elements/mat-drawer) for more information.
