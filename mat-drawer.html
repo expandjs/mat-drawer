@@ -91,12 +91,15 @@ This element is used to display a material navigation drawer.
             }
 
             :host(:not([right])) #matDrawerColumn {
-                border-right-width: 1px;
                 max-width: 400px;
                 min-width: 256px;
                 -ms-flex-order: 1;
                 order: 1;
                 overflow: hidden;
+            }
+
+            :host(:not([right])) #matDrawerColumn[z="0"] {
+                border-right-width: 1px;
             }
 
             polyfill-next-selector { content: '[mobile]:not([type="tablet"]) :host(:not([right])) #matDrawerColumn' }
