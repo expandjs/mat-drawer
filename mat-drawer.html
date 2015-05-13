@@ -82,11 +82,13 @@ This element is used to display a material navigation drawer.
             }
 
             :host #matDrawerColumn {
+                height: 100%;
                 pointer-events: auto !important;
             }
 
             :host([right]) #matDrawerColumn {
                 border-left-width: 1px;
+                width: 100%;
             }
 
             :host(:not([right])) #matDrawerColumn {
@@ -95,6 +97,7 @@ This element is used to display a material navigation drawer.
                 min-width: 256px;
                 -ms-flex-order: 1;
                 order: 1;
+                overflow: hidden;
             }
 
             polyfill-next-selector { content: '[mobile]:not([type="tablet"]) :host(:not([right])) #matDrawerColumn' }
@@ -106,7 +109,7 @@ This element is used to display a material navigation drawer.
         <div id="matDrawerBackdrop" hidden?="{{right || !narrow}}" on-click="{{handleHide}}" fit></div>
         <div id="matDrawerWrapper" end-justified?="{{right}}" fit?="{{narrow}}" horizontal layout>
             <div id="matDrawerSpacer" hidden?="{{right || !narrow}}"></div>
-            <mat-paper id="matDrawerColumn" z="{{narrow ? 1 : 0}}" flex?="{{right || (mobile && device !== 'tablet')}}">
+            <mat-paper id="matDrawerColumn" z="{{narrow ? 1 : 0}}" flex?="{{mobile && device !== 'tablet'}}">
                 <content id="content"></content>
             </mat-paper>
         </div>
