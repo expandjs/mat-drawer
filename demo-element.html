@@ -8,28 +8,27 @@
 
     <template>
         <style>
-            :host [drawer],
-            :host [main] {
+            :host .demo-container {
                 text-align: center;
             }
         </style>
         <mat-demo label="mat-drawer">
 
             <mat-shell>
-                <mat-drawer id="demoLeft">
+                <mat-drawer id="demoLeft" class="demo-container">
                     <mat-content>
                         <div>Drawer content.</div>
                         <mat-button label="Close" target="demoLeft" hidden?="{{!$.demoLeft.narrow}}" on-xp-activate="{{handleActivate}}"></mat-button>
                     </mat-content>
                 </mat-drawer>
-                <div main>
+                <mat-paper class="demo-container" z="1">
                     <mat-content>
                         <div class="demo-title">Default</div>
                         <mat-button label="Toggle drawer" target="demoLeft" hidden?="{{!$.demoLeft.narrow}}" on-xp-activate="{{handleActivate}}"></mat-button>
                         <mat-button label="Toggle right drawer" target="demoRight" on-xp-activate="{{handleActivate}}"></mat-button>
                     </mat-content>
-                </div>
-                <mat-drawer id="demoRight" right>
+                </mat-paper>
+                <mat-drawer id="demoRight" class="demo-container" right>
                     <mat-content>
                         <div>Right drawer content.</div>
                         <mat-button label="Close" target="demoRight" on-xp-activate="{{handleActivate}}"></mat-button>
