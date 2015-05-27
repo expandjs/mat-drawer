@@ -387,7 +387,7 @@ This element is used to display a material navigation drawer.
 
             // HANDLER
             handleHide: function (event) {
-                if (event.keyCode === 27 || !event.keyCode) { this.hide(); }
+                if (event.keyCode === 27 || (!event.keyCode && !event.button)) { this.hide(); }
             },
 
             // HANDLER
