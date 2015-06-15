@@ -25,15 +25,15 @@
     "**/.*"
   ],
   "dependencies": {
-    "expandjs": "ExpandJS/expandjs",
-    "mat-paper": "ExpandJS/mat-paper",
-    "xp-device": "ExpandJS/xp-device",
+    "expandjs": "ExpandJS/expandjs#alpha",
+    "mat-paper": "ExpandJS/mat-paper#alpha",
+    "xp-device": "ExpandJS/xp-device#alpha",
     "polymer": "Polymer/polymer#^0.5"
   },
   "devDependencies": {
-    "mat-button": "ExpandJS/mat-button",
-    "mat-content": "ExpandJS/mat-content",
-    "mat-demo": "ExpandJS/mat-demo",
-    "mat-shell": "ExpandJS/mat-shell"
+    "mat-button": "ExpandJS/mat-button#alpha",
+    "mat-content": "ExpandJS/mat-content#alpha",
+    "mat-demo": "ExpandJS/mat-demo#alpha",
+    "mat-shell": "ExpandJS/mat-shell#alpha"
   }
 }
