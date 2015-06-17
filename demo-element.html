@@ -1,0 +1,64 @@
+<link rel="import" href="../mat-demo/mat-demo.html">
+<link rel="import" href="../mat-button/mat-button.html">
+<link rel="import" href="../mat-content/mat-content.html">
+<link rel="import" href="../mat-shell/mat-shell.html">
+<link rel="import" href="mat-drawer.html">
+
+<dom-module id="mat-drawer-demo">
+
+    <style>
+        :host .demo-container {
+            height: 100%;
+            text-align: center;
+        }
+
+        :host #demoLeft:not([narrow]) [target="demoLeft"],
+        :host #demoLeft:not([narrow]) ~ .demo-container [target="demoLeft"] {
+            display: none !important;
+        }
+    </style>
+
+    <template>
+        <mat-demo label="mat-drawer">
+
+            <mat-shell>
+                <mat-drawer id="demoLeft" class="demo-container">
+                    <mat-content>
+                        <div>Drawer content.</div>
+                        <mat-button label="Close" target="demoLeft" on-xp-activate="_handleActivate"></mat-button>
+                    </mat-content>
+                </mat-drawer>
+                <mat-paper class="demo-container" z="2">
+                    <mat-content>
+                        <div class="demo-title">Default</div>
+                        <mat-button label="Toggle drawer" target="demoLeft" on-xp-activate="_handleActivate"></mat-button>
+                        <mat-button label="Toggle right drawer" target="demoRight" on-xp-activate="_handleActivate"></mat-button>
+                    </mat-content>
+                </mat-paper>
+                <mat-drawer id="demoRight" class="demo-container" right>
+                    <mat-content>
+                        <div>Right drawer content.</div>
+                        <mat-button label="Close" target="demoRight" on-xp-activate="_handleActivate"></mat-button>
+                    </mat-content>
+                </mat-drawer>
+            </mat-shell>
+
+        </mat-demo>
+    </template>
+
+    <script>
+        Polymer({
+
+            // ELEMENT
+            is: 'mat-drawer-demo',
+
+            /*********************************************************************/
+
+            // HANDLER
+            _handleActivate: function (event) {
+                event.detail.target.toggle();
+            }
+        });
+    </script>
+
+</dom-module>

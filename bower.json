@@ -1,0 +1,40 @@
+{
+  "name": "mat-drawer",
+  "license": "BSD-3-Clause",
+  "version": "0.9.0",
+  "description": "A custom element used to display a Material Design navigational drawer",
+  "homepage": "http://expandjs.com/elements/mat-drawer",
+  "authors": [
+    "Giuliano Rullo <g.rullo@expandjs.com>",
+    "Maurizio Stefàno <m.stefano@expandjs.com>",
+    "Robert Manolea <r.manolea@expandjs.com>"
+  ],
+  "keywords": [
+    "material design",
+    "material drawer panel",
+    "material side nav",
+    "web app",
+    "html5",
+    "expandjs",
+    "web-components"
+  ],
+  "main": [
+    "mat-drawer.html"
+  ],
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "expandjs": "ExpandJS/expandjs",
+    "mat-paper": "ExpandJS/mat-paper",
+    "xp-device": "ExpandJS/xp-device",
+    "polymer": "Polymer/polymer",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout"
+  },
+  "devDependencies": {
+    "mat-button": "ExpandJS/mat-button",
+    "mat-content": "ExpandJS/mat-content",
+    "mat-demo": "ExpandJS/mat-demo",
+    "mat-shell": "ExpandJS/mat-shell"
+  }
+}
