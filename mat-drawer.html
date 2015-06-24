@@ -284,11 +284,9 @@ It should be used in conjunction with mat-shell.
                  * @type boolean
                  * @default false
                  * @notifies
-                 * @readonly
                  */
                 animatable: {
                     notify: true,
-                    readOnly: true,
                     type: Boolean,
                     value: false
                 },
@@ -442,7 +440,7 @@ It should be used in conjunction with mat-shell.
                 self.mutated();
 
                 // Setting
-                XP.delay(function () { self._setAnimatable(true); });
+                XP.delay(function () { self.animatable = true; });
             },
 
             // LISTENER
