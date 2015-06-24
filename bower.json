@@ -28,8 +28,8 @@
     "expandjs": "ExpandJS/expandjs#0.9.1",
     "mat-paper": "ExpandJS/mat-paper#0.9.1",
     "xp-device": "ExpandJS/xp-device#0.9.1",
-    "polymer": "Polymer/polymer#^1.0.4",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.2"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0"
   },
   "devDependencies": {
     "mat-button": "ExpandJS/mat-button#0.9.1",
