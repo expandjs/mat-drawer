@@ -439,7 +439,12 @@ It should be used in conjunction with mat-shell.
 
             // LISTENER
             created: function () {
-                this._jobAnimation = XP.debounce(this._setAnimated.bind(this, false), 330);
+
+                // Vars
+                var self = this;
+
+                // Setting
+                self._jobAnimation = XP.debounce(function () { self._setAnimated(false); }, 330);
             },
 
             // LISTENER
