@@ -17,10 +17,10 @@ It should be used in conjunction with mat-shell.
 @homepage http://expandjs.com/elements/mat-drawer
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.3
+@dependency expandjs ExpandJS/expandjs#0.9.4
 @dependency iron-flex-layout PolymerElements/iron-flex-layout#^1.0.0
-@dependency mat-paper ExpandJS/mat-paper#0.9.3
-@dependency xp-device ExpandJS/xp-device#0.9.3
+@dependency mat-paper ExpandJS/mat-paper#0.9.4
+@dependency xp-device ExpandJS/xp-device#0.9.4
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -440,11 +440,8 @@ It should be used in conjunction with mat-shell.
             // LISTENER
             created: function () {
 
-                // Vars
-                var self = this;
-
-                // Setting
-                self._jobAnimation = XP.debounce(function () { self._setAnimated(false); }, 330);
+                // Debouncing
+                this._jobAnimation = XP.debounce(this._setAnimated.bind(this, false), 330);
             },
 
             // LISTENER
