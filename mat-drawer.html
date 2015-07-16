@@ -39,7 +39,6 @@ It should be used in conjunction with mat-shell.
             opacity: 0.99;
             overflow: visible;
             position: relative;
-            z-index: 2;
         }
 
         :host([empty]),
@@ -50,10 +49,6 @@ It should be used in conjunction with mat-shell.
         :host([narrow]) {
             @apply(--layout-fit);
             z-index: 9999 !important;
-        }
-
-        :host([right]) {
-            z-index: 0;
         }
 
         :host #matDrawerBackdrop {
