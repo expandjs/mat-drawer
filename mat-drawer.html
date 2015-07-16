@@ -128,7 +128,7 @@ It should be used in conjunction with mat-shell.
         <div id="matDrawerBackdrop" on-click="_handleHide"></div>
         <div id="matDrawerWrapper">
             <div id="matDrawerSpacer"></div>
-            <mat-paper id="matDrawerColumn" z="[[_computeZ(narrow, raised)]]">
+            <mat-paper id="matDrawerColumn" background="[[background]]" z="[[_computeZ(narrow, raised)]]">
                 <content id="content"></content>
             </mat-paper>
         </div>
@@ -314,6 +314,18 @@ It should be used in conjunction with mat-shell.
                     reflectToAttribute: true,
                     type: Boolean,
                     value: false
+                },
+
+                /**
+                 * The paper's background color.
+                 *
+                 * @attribute background
+                 * @type string
+                 */
+                background: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
                 },
 
                 /**
