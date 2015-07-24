@@ -7,9 +7,36 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-This element is used to display a material navigation drawer.
+An element used to display a [Material Design nav drawer](http://www.google.com/design/spec/layout/structure.html#structure-side-nav).
 
-It should be used in conjunction with mat-shell.
+It can be used as standalone or in conjunction with [mat-shell](http://expandjs.com/elements/mat-shell).
+
+By default, the drawer is used for an app's main navigation. However, by setting `right`, it
+will move to the right side, where it can be used to show further details of a selected item.
+
+```html
+<mat-shell>
+    <mat-drawer>Navigation</mat-drawer>
+    <mat-content>Content</mat-content>
+    <mat-drawer right>Details</mat-drawer>
+</mat-shell>
+```
+
+Whenever the device's screen size is lower than the set `break-point`, the drawer will
+collapse itself automatically, freeing up the screen estate. By default, the `break-point`
+is 1280px for the navigation and 640px for the details.
+
+```html
+<mat-shell>
+    <mat-drawer break-point="960">
+        Will always be visible when the screen size is above 960px
+        and toggleable when the screen size is lower than 960px.
+    </mat-drawer>
+    <mat-content>
+        The main content.
+    </mat-content>
+</mat-shell>
+```
 
 @element mat-drawer
 @description A custom element used to display a Material Design navigational drawer
@@ -18,10 +45,10 @@ It should be used in conjunction with mat-shell.
 @homepage http://expandjs.com/elements/mat-drawer
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.4
+@dependency expandjs ExpandJS/expandjs#0.9.5
 @dependency iron-flex-layout PolymerElements/iron-flex-layout#^1.0.0
-@dependency mat-paper ExpandJS/mat-paper#0.9.4
-@dependency xp-device ExpandJS/xp-device#0.9.4
+@dependency mat-paper ExpandJS/mat-paper#0.9.5
+@dependency xp-device ExpandJS/xp-device#0.9.5
 -->
 
 <link rel="import" href="../polymer/polymer.html">
