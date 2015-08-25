@@ -96,7 +96,7 @@ is 1280px for the navigation and 640px for the details.
             position: relative;
             -webkit-transition: -webkit-transform 0.33s cubic-bezier(0.55, 0, 0.01, 1);
             transition: transform 0.33s cubic-bezier(0.55, 0, 0.01, 1);
-            will-change: transform;
+            will-change: -webkit-transform, transform;
         }
 
         :host([narrow]) #matDrawerWrapper {
