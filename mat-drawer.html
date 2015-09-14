@@ -150,6 +150,7 @@ is 1280px for the navigation and 640px for the details.
 
             :host #matDrawerColumn {
                 height: 100%;
+                overflow: visible;
                 pointer-events: auto !important;
                 -webkit-transform: translateX(-100%);
                 transform: translateX(-100%);
@@ -180,7 +181,6 @@ is 1280px for the navigation and 640px for the details.
                 -ms-flex-order: 1;
                 -webkit-order: 1;
                 order: 1;
-                overflow: hidden;
             }
 
             :host(:not([right])) #matDrawerColumn[z="0"] {
