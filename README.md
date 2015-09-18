@@ -1,3 +1,3 @@
 # mat-drawer
 
-See the [`documentation page`](http://expandjs.com/elements/mat-drawer) for more information.
+This repository **is deprecated**. It's been merged with [`mat-drawer-panel`](https://github.com/expandjs/mat-drawer-panel).
